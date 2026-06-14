@@ -1,0 +1,493 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   A0 Colony — Design System
+   Switchable themes. Set data-theme on <html> to change palettes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap');
+
+/* ── Shared Tokens (non-color) ───────────────────────────────────────── */
+:root {
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --space-2xl: 64px;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+
+    /* Typography */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --font-ui: 'Exo 2', sans-serif;
+}
+
+/* ── Theme: Duskwood (default) — Rosé Pine inspired ──────────────────── */
+:root,
+[data-theme="duskwood"] {
+    --void:         #191724;
+    --hull:         #1F1D2E;
+    --hull-lit:     #26233A;
+    --hull-glow:    #2D2B3E;
+
+    --plasma:       #F6C177;
+    --plasma-dim:   #C49A5C;
+    --plasma-glow:  rgba(246, 193, 119, 0.12);
+    --plasma-bright:rgba(246, 193, 119, 0.25);
+
+    --signal-green: #9CCFD8;
+    --signal-amber: #F6C177;
+    --signal-red:   #EB6F92;
+    --signal-purple:#C4A7E7;
+
+    --text-bright:  #E0DEF4;
+    --text-normal:  #C5C0D8;
+    --text-dim:     #908CAA;
+    --text-ghost:   #6E6A86;
+
+    --grid-line:    #403D52;
+    --grid-bright:  #524F67;
+
+    /* Derived tokens for inline styles */
+    --signal-blue:  #9CCFD8;
+    --badge-green-bg:  rgba(156, 207, 216, 0.12);
+    --badge-amber-bg:  rgba(246, 193, 119, 0.12);
+    --badge-red-bg:    rgba(235, 111, 146, 0.12);
+    --badge-purple-bg: rgba(196, 167, 231, 0.12);
+    --badge-blue-bg:   rgba(156, 207, 216, 0.12);
+    --overlay-bg:      rgba(25, 23, 36, 0.85);
+    --hover-row:       rgba(246, 193, 119, 0.03);
+
+    /* Star field tints */
+    --star-tint-1:  rgba(246, 193, 119, 0.10);
+    --star-tint-2:  rgba(196, 167, 231, 0.08);
+}
+
+/* ── Theme: Plasma — original sci-fi terminal ────────────────────────── */
+[data-theme="plasma"] {
+    --void:         #030614;
+    --hull:         #0a0f2e;
+    --hull-lit:     #111842;
+    --hull-glow:    #161d50;
+
+    --plasma:       #00e5ff;
+    --plasma-dim:   #007a8a;
+    --plasma-glow:  rgba(0, 229, 255, 0.12);
+    --plasma-bright:rgba(0, 229, 255, 0.25);
+
+    --signal-green: #00ff88;
+    --signal-amber: #ffaa00;
+    --signal-red:   #ff3366;
+    --signal-purple:#a855f7;
+
+    --text-bright:  #f0f4ff;
+    --text-normal:  #c8d4f0;
+    --text-dim:     #6b7db8;
+    --text-ghost:   #2a3660;
+
+    --grid-line:    #1a2550;
+    --grid-bright:  #2a3a70;
+
+    --signal-blue:  #448aff;
+    --badge-green-bg:  rgba(0, 255, 136, 0.12);
+    --badge-amber-bg:  rgba(255, 170, 0, 0.12);
+    --badge-red-bg:    rgba(255, 51, 102, 0.12);
+    --badge-purple-bg: rgba(168, 85, 247, 0.12);
+    --badge-blue-bg:   rgba(68, 138, 255, 0.15);
+    --overlay-bg:      rgba(3, 6, 20, 0.85);
+    --hover-row:       rgba(0, 229, 255, 0.03);
+
+    --star-tint-1:  rgba(0, 229, 255, 0.12);
+    --star-tint-2:  rgba(168, 85, 247, 0.08);
+}
+
+/* ── Theme: Hearthstone — Gruvbox warm earth ─────────────────────────── */
+[data-theme="hearthstone"] {
+    --void:         #1D2021;
+    --hull:         #282828;
+    --hull-lit:     #3C3836;
+    --hull-glow:    #504945;
+
+    --plasma:       #D79921;
+    --plasma-dim:   #A67C14;
+    --plasma-glow:  rgba(215, 153, 33, 0.12);
+    --plasma-bright:rgba(215, 153, 33, 0.25);
+
+    --signal-green: #98971A;
+    --signal-amber: #D79921;
+    --signal-red:   #CC241D;
+    --signal-purple:#B16286;
+
+    --text-bright:  #EBDBB2;
+    --text-normal:  #D5C4A1;
+    --text-dim:     #A89984;
+    --text-ghost:   #665C54;
+
+    --grid-line:    #504945;
+    --grid-bright:  #665C54;
+
+    --signal-blue:  #458588;
+    --badge-green-bg:  rgba(152, 151, 26, 0.15);
+    --badge-amber-bg:  rgba(215, 153, 33, 0.15);
+    --badge-red-bg:    rgba(204, 36, 29, 0.15);
+    --badge-purple-bg: rgba(177, 98, 134, 0.15);
+    --badge-blue-bg:   rgba(69, 133, 136, 0.15);
+    --overlay-bg:      rgba(29, 32, 33, 0.88);
+    --hover-row:       rgba(215, 153, 33, 0.03);
+
+    --star-tint-1:  rgba(215, 153, 33, 0.10);
+    --star-tint-2:  rgba(177, 98, 134, 0.08);
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--void);
+    color: var(--text-normal);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ── Star Field Background ────────────────────────────────────────────── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.18) 0%, transparent 100%),
+        radial-gradient(1.2px 1.2px at 30% 60%, var(--star-tint-1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, var(--star-tint-2) 0%, transparent 100%),
+        radial-gradient(0.8px 0.8px at 50% 85%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.12) 0%, transparent 100%),
+        radial-gradient(0.6px 0.6px at 15% 90%, var(--star-tint-1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,0.2) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * { position: relative; z-index: 1; }
+
+/* ── Navigation ───────────────────────────────────────────────────────── */
+#global-nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 var(--space-md);
+    background: var(--overlay-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--grid-line);
+    font-family: var(--font-ui);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    min-height: 40px;
+}
+
+.nav-brand {
+    font-family: var(--font-display);
+    color: var(--plasma);
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: var(--space-lg);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px var(--plasma-glow);
+}
+
+.nav-item {
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 10px 12px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--text-bright);
+}
+
+.nav-item.active {
+    color: var(--plasma);
+    border-bottom-color: var(--plasma);
+    text-shadow: 0 0 12px var(--plasma-glow);
+}
+
+/* ── Page Header ──────────────────────────────────────────────────────── */
+.page-header {
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    text-align: center;
+}
+
+.page-header h1,
+.page-title {
+    font-family: var(--font-display);
+    color: var(--text-bright);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+}
+
+.page-subtitle {
+    font-family: var(--font-ui);
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* ── Panels ───────────────────────────────────────────────────────────── */
+.panel {
+    background: var(--hull);
+    border: 1px solid var(--grid-line);
+    border-radius: var(--radius-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.panel:hover {
+    border-color: var(--grid-bright);
+    box-shadow: 0 4px 24px var(--plasma-glow);
+}
+
+.panel-header {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--plasma);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--grid-line);
+}
+
+/* ── Status Badges ────────────────────────────────────────────────────── */
+.badge {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-online  { background: var(--badge-green-bg); color: var(--signal-green); }
+.badge-offline { background: rgba(107,125,184,0.12); color: var(--text-dim); }
+.badge-warning { background: var(--badge-amber-bg); color: var(--signal-amber); }
+.badge-error   { background: var(--badge-red-bg); color: var(--signal-red); }
+.badge-special { background: var(--badge-purple-bg); color: var(--signal-purple); }
+
+/* ── Status Dot ───────────────────────────────────────────────────────── */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--signal-green);
+    box-shadow: 0 0 6px var(--signal-green);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.status-dot.idle {
+    background: var(--signal-amber);
+    box-shadow: 0 0 6px var(--signal-amber);
+}
+
+.status-dot.offline {
+    background: var(--text-dim);
+    box-shadow: none;
+    animation: none;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.btn {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--grid-line);
+    background: var(--hull-lit);
+    color: var(--text-normal);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: var(--hull-glow);
+    border-color: var(--plasma-dim);
+    color: var(--text-bright);
+}
+
+.btn-primary {
+    background: var(--plasma-glow);
+    border-color: var(--plasma-dim);
+    color: var(--plasma);
+}
+
+.btn-primary:hover {
+    background: var(--plasma-bright);
+    box-shadow: 0 0 16px var(--plasma-glow);
+}
+
+/* ── Data Tables ──────────────────────────────────────────────────────── */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.data-table th {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 10px var(--space-md);
+    border-bottom: 1px solid var(--grid-line);
+}
+
+.data-table td {
+    padding: 8px var(--space-md);
+    border-bottom: 1px solid var(--grid-line);
+    color: var(--text-normal);
+}
+
+.data-table tr:hover td {
+    background: var(--hover-row);
+}
+
+/* ── Animations ───────────────────────────────────────────────────────── */
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 4px var(--plasma-glow); }
+    50%      { box-shadow: 0 0 16px var(--plasma-glow), 0 0 32px var(--plasma-glow); }
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-1 { animation: fadeSlideUp 0.4s ease-out 0.05s both; }
+.stagger-2 { animation: fadeSlideUp 0.4s ease-out 0.1s both; }
+.stagger-3 { animation: fadeSlideUp 0.4s ease-out 0.15s both; }
+.stagger-4 { animation: fadeSlideUp 0.4s ease-out 0.2s both; }
+.stagger-5 { animation: fadeSlideUp 0.4s ease-out 0.25s both; }
+.stagger-6 { animation: fadeSlideUp 0.4s ease-out 0.3s both; }
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--grid-line); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grid-bright); }
+
+/* ── Stat Cards ───────────────────────────────────────────────────────── */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-md);
+}
+
+.stat-card {
+    background: var(--hull);
+    border: 1px solid var(--grid-line);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--plasma);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: var(--space-xs);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    #global-nav { font-size: 10.5px; gap: 0; }
+    .nav-brand { margin-right: var(--space-sm); font-size: 11px; }
+    .nav-item { padding: 8px 8px; }
+    .page-header h1 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Theme Switcher ──────────────────────────────────────────────────── */
+.theme-switcher {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+}
+
+.theme-switcher label {
+    font-size: 10px;
+    color: var(--text-ghost);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.theme-btn {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--grid-line);
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    padding: 0;
+    background: none;
+}
+
+.theme-btn:hover {
+    border-color: var(--text-dim);
+}
+
+.theme-btn.active {
+    border-color: var(--text-bright);
+    box-shadow: 0 0 6px rgba(255,255,255,0.2);
+}
+
+.theme-btn[data-theme="duskwood"]   { background: linear-gradient(135deg, #191724, #F6C177); }
+.theme-btn[data-theme="plasma"]     { background: linear-gradient(135deg, #030614, #00e5ff); }
+.theme-btn[data-theme="hearthstone"]{ background: linear-gradient(135deg, #1D2021, #D79921); }

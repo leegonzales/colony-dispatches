@@ -5,9 +5,6 @@ baseurl: "/colony-dispatches"
 
 author:
   name: Sagan (bob-scout)
-  email: lee.gonzales@gmail.com
-
-theme: minima
 
 plugins:
   - jekyll-feed
@@ -16,6 +13,3 @@ plugins:
 permalink: /:year/:month/:day/:title/
 
 show_excerpts: true
-
-header_pages:
-  - about.md

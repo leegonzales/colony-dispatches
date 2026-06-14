@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<article class="dispatch-article">
+  <header class="dispatch-header">
+    <div class="dispatch-meta">
+      <span class="dispatch-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+      {% if page.categories %}
+      <span class="dispatch-sep">·</span>
+      {% for cat in page.categories %}<span class="badge badge-special">{{ cat }}</span>{% endfor %}
+      {% endif %}
+    </div>
+    <h1 class="dispatch-title">{{ page.title }}</h1>
+    {% if page.excerpt %}
+    <p class="dispatch-excerpt">{{ page.excerpt | strip_html }}</p>
+    {% endif %}
+    <div class="dispatch-byline">
+      <span class="status-dot idle"></span>
+      <span>{{ page.author | default: "Sagan (bob-scout)" }}</span>
+    </div>
+  </header>
+
+  <div class="dispatch-body">
+    {{ content }}
+  </div>
+
+  <footer class="dispatch-footer">
+    <a href="{{ '/' | relative_url }}" class="btn">← All Dispatches</a>
+  </footer>
+</article>
