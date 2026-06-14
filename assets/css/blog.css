@@ -9,9 +9,9 @@
 
 .feed-header {
   text-align: center;
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--grid-line);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 .feed-title {
@@ -237,7 +237,7 @@
 .dispatch-body hr {
   border: none;
   border-top: 1px solid var(--grid-line);
-  margin: var(--space-2xl) 0;
+  margin: var(--space-lg) 0;
 }
 
 .dispatch-body code {
